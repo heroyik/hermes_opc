@@ -18,13 +18,15 @@ import {
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
 const bentoItems = [
   {
     title: "The Solo Founder's AI Team",
     description: "Stop grinding 24/7. Build a fleet of autonomous agents that handle the boring stuff while you focus on the big picture.",
     className: "md:col-span-2 md:row-span-2",
     icon: <Cpu className="w-10 h-10 text-cyber-blue" />,
-    image: "/hermes_agent_os_hero_1777882398119.png",
+    image: `${basePath}/hermes_agent_os_hero_1777882398119.png`,
     cta: "Launch Your Team",
     href: "/book/introduction"
   },
