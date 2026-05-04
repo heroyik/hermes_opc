@@ -1,0 +1,36 @@
+# Setting up the Main Desk
+
+Every company needs an HQ. For a solo entrepreneur, your HQ shouldn't be a physical office or even a browser tab. It should be where you already spend your time: **Slack** or **Discord**.
+
+## 🛠 Step 1: Connect the Gateway
+
+The Hermes Agent acts as the bridge between your communication platform and your machine.
+
+### The Architecture
+1. **Gateway**: Receives your message.
+2. **Orchestrator**: Parses the intent (What do you want?).
+3. **Execution**: Runs the required skill.
+
+## 🚀 Simulation: Your First Message
+
+Let's test the connection. In your terminal (or soon, your Slack), type:
+
+```bash
+hermes status
+```
+
+**Response:**
+> **[Hermes]**: Online. 
+> - **Active Skills**: WebSearch, FileSystem, Git.
+> - **Context**: Solo Entrepreneur Playbook Project.
+> - **Status**: Ready for instructions.
+
+---
+
+## 🎯 Task: Define your "Admin" Channel
+Create a private channel in your Slack called `#hq-ops`. This is where you will:
+- Receive daily briefings.
+- Approve high-priority expenses.
+- Monitor your agent's logs.
+
+**Tip**: Don't use your general channel. You want to keep your "CEO Brain" separate from your "Execution Brain".
