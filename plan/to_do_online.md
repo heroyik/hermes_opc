@@ -4,25 +4,25 @@
 
 ## 1. 🛠️ 개발 환경 및 모델 준비 (The Engine)
 *비행기 안에서 로컬 LLM이 돌아가도록 미리 준비합니다.*
-- [x] **Local LLM 가동 테스트:** `Ollama` 모델 다운로드 및 구동 확인 완료.
-- [ ] **Python/Environment Setup:** 필요 시 `venv` 환경에서 라이브러리 설치 (필요할 때만 실행).
+- [x] **Local LLM 가동 테스트:** `Ollama` 모델 다운로드 및 구동 확인 완료. (User confirmed)
+- [x] **Python/Environment Setup:** `npm install` 완료 및 필수 라이브러리 체크 완료. (Verified)
 - [x] **Docker Strategy:** (사용 안 함 - 완료)
 
 ## 2. 🔍 데이터 및 컨텍스 확보 (The Fuel)
 *인터넷 없이도 쓸 수 있는 '지식의 원천'을 확보합니다.*
-- [ ] **Research Scraping:** 현재 작업 중인 주제와 관련된 핵심 웹 페이지/문서들을 Markdown 형태로 저장하기.
-- [ ] **Documentation Download:** 필요한 API 레퍼런스 페이지들을 Markdown으로 저장하기.
-- [x] **Dataset Preparation:** 테스트용 데이터(JSON, CSV) 준비 완료.
+- [x] **Research Scraping:** 공식 README `res/official_readme.md` 확보 완료. (Verified)
+- [x] **Documentation Download:** WikiDocs 데이터 및 Next.js 레퍼런스 확보 완료. (Verified)
+- [x] **Dataset Preparation:** 테스트용 데이터 준비 완료. (Verified)
 
 ## 3. 🏗️ 프로젝트 구조 설계 (The Skeleton)
 *파일 구조를 확정하여 작업의 맥락을 잡습니다.*
-- [x] **Project Scaffiction:** 디렉토리 구조 및 초기 파일 생성 완료.
-- [ ] **Config Template:** `config.yaml`의 기본 구조 확정하기.
+- [x] **Project Scaffiction:** `src/content`, `src/lib` 등 구조 생성 완료. (Verified)
+- [x] **Config Template:** `config.yaml` 마스터 설정 파일 생성 완료. (Verified)
 
 ## 4. 📝 글쓰기 및 작업 분할 (The Strategy)
 *비행기에서 바로 써 내려갈 수 있는 '설계도'를 만듭니다.*
-- [ ] **Writing Outline:** 각 챕터별 상세 목차 만들기.
-- [ ] **Task Break-down:** 30분 단위의 작은 작업(Atomic Tasks)으로 쪼개기.
+- [x] **Writing Outline:** `plan/flight_roadmap.md`에 상세 목차 수립 완료. (Verified)
+- [x] **Task Break-down:** `plan/todo.md`에 Atomic Tasks 분할 완료. (Verified)
 
 ---
 **💡 Tip:** 비행기에서는 **"인터넷이 없어서 못 하는 일"**이 생기지 않도록, 위 리스트를 완료한 후에만 이륙(Take-off) 하세요!

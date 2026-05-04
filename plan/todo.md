@@ -1,0 +1,19 @@
+- [x] Project Initialization
+    - [x] Initialize Next.js project
+    - [x] Configure Design System (Deep Space Black & Cyber Blue)
+    - [x] Setup Framer Motion & Lucide Icons
+    - [x] Setup Python .venv & config.yaml utility
+- [x] Content Synthesis & Engineering
+    - [x] Define the "Solo Founder Day" narrative structure
+    - [/] Map existing `res/` content to new step-by-step 101 sections
+    - [x] Build Interactive MDX Components
+        - [x] Implement `<Terminal />` for CLI simulations
+        - [x] Implement `<SimulationCard />` for flow visualization
+- [x] UI/UX Implementation (Elite Responsive)
+    - [x] Create Bento Grid landing page with "Living Grid" motion
+    - [x] Implement PC Two-column reader view
+    - [x] Implement Mobile/Tablet navigation refinements (Menu Drawer)
+    - [x] Apply Glassmorphism and Backdrop filters
+- [ ] Deployment
+    - [x] Setup GitHub Actions workflow
+    - [ ] Final Build & Validation

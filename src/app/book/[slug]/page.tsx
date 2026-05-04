@@ -1,19 +1,24 @@
-import { Metadata } from "next";
+import { Metadata, Viewport } from "next";
+
+export const viewport: Viewport = {
+  themeColor: "#050505",
+  width: "device-width",
+  initialScale: 1,
+};
 import { notFound } from "next/navigation";
 import { BookOpen, ChevronLeft, ChevronRight, Menu } from "lucide-react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { Terminal } from "lucide-react";
 import { getChapterContent } from "@/lib/mdx";
+import { getAppConfig } from "@/lib/config";
 
-// This will later be replaced by a dynamic data fetch from a JSON file
-const chapters = [
-  { slug: "introduction", title: "00. Introduction to Agent OS", module: "Foundation" },
-  { slug: "main-desk", title: "01. Setting up the Main Desk", module: "Architecture" },
-];
+import MobileMenu from "@/components/MobileMenu";
 
 export async function generateStaticParams() {
-  return chapters.map((chapter) => ({
+  const config = getAppConfig();
+  const allChapters = config.navigation.flatMap((m) => m.chapters);
+  return allChapters.map((chapter) => ({
     slug: chapter.slug,
   }));
 }
@@ -26,9 +31,22 @@ interface PageProps {
 
 export default async function ReaderPage({ params }: PageProps) {
   const { slug } = await params;
-  const chapter = chapters.find((c) => c.slug === slug);
+  const config = getAppConfig();
+  
+  // Flatten navigation to find the current chapter and its module
+  let activeChapter = null;
+  let activeModule = null;
 
-  if (!chapter) {
+  for (const mod of config.navigation) {
+    const ch = mod.chapters.find((c) => c.slug === slug);
+    if (ch) {
+      activeChapter = ch;
+      activeModule = mod;
+      break;
+    }
+  }
+
+  if (!activeChapter) {
     notFound();
   }
 
@@ -46,27 +64,29 @@ export default async function ReaderPage({ params }: PageProps) {
         </div>
         <nav className="p-4 overflow-y-auto max-h-[calc(100vh-64px)]">
           <div className="space-y-6">
-            <div>
-              <h3 className="mb-3 px-2 text-[10px] font-bold uppercase tracking-[0.2em] text-secondary/60">
-                Foundation
-              </h3>
-              <div className="space-y-1">
-                {chapters.map((ch) => (
-                  <Link
-                    key={ch.slug}
-                    href={`/book/${ch.slug}/`}
-                    className={cn(
-                      "flex items-center rounded-xl px-3 py-2.5 text-sm transition-all duration-200",
-                      slug === ch.slug
-                        ? "bg-primary/10 text-primary font-semibold ring-1 ring-primary/20"
-                        : "text-secondary hover:bg-white/5 hover:text-foreground"
-                    )}
-                  >
-                    {ch.title}
-                  </Link>
-                ))}
+            {config.navigation.map((mod) => (
+              <div key={mod.module}>
+                <h3 className="mb-3 px-2 text-[10px] font-bold uppercase tracking-[0.2em] text-secondary/60">
+                  {mod.module}
+                </h3>
+                <div className="space-y-1">
+                  {mod.chapters.map((ch) => (
+                    <Link
+                      key={ch.slug}
+                      href={`/book/${ch.slug}/`}
+                      className={cn(
+                        "flex items-center rounded-xl px-3 py-2.5 text-sm transition-all duration-200",
+                        slug === ch.slug
+                          ? "bg-primary/10 text-primary font-semibold ring-1 ring-primary/20"
+                          : "text-secondary hover:bg-white/5 hover:text-foreground"
+                      )}
+                    >
+                      {ch.title}
+                    </Link>
+                  ))}
+                </div>
               </div>
-            </div>
+            ))}
           </div>
         </nav>
       </aside>
@@ -77,23 +97,21 @@ export default async function ReaderPage({ params }: PageProps) {
         <header className="sticky top-0 z-30 flex h-14 items-center justify-between border-b border-white/5 bg-background/80 px-4 backdrop-blur-md lg:hidden">
           <Link href="/" className="font-bold text-primary">HB</Link>
           <div className="flex items-center gap-2 overflow-hidden">
-            <span className="text-xs font-medium truncate max-w-[200px]">{chapter.title}</span>
+            <span className="text-xs font-medium truncate max-w-[200px]">{activeChapter.title}</span>
           </div>
-          <button className="rounded-md p-2 hover:bg-white/5">
-            <Menu className="w-5 h-5" />
-          </button>
+          <MobileMenu config={config} currentSlug={slug} />
         </header>
 
         {/* Article */}
         <article className="mx-auto max-w-3xl px-6 py-12 lg:px-12 lg:py-20">
           <div className="mb-10 flex items-center gap-2 text-sm">
             <span className="rounded-full bg-primary/10 px-3 py-1 text-xs font-bold uppercase tracking-wider text-primary ring-1 ring-primary/20">
-              Module: {chapter.module}
+              Module: {activeModule?.module}
             </span>
           </div>
           
           <h1 className="mb-10 text-3xl font-black tracking-tight md:text-5xl lg:text-6xl text-balance">
-            {chapter.title}
+            {activeChapter.title}
           </h1>
 
           <div className="prose prose-invert prose-blue max-w-none prose-headings:font-bold prose-p:text-secondary/90 prose-p:leading-relaxed prose-p:text-lg">

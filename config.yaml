@@ -1,0 +1,48 @@
+# Hermes Book Configuration
+title: "Hermes Agent OS 101"
+subtitle: "The Solo Entrepreneur's Playbook"
+author: "Solo Founder"
+version: "1.0.0"
+
+# Design Theme
+theme:
+  primary: "#00F0FF"
+  background: "#050505"
+  accent: "#7000FF"
+
+# Modules & Chapters Mapping
+# This aligns with src/content/*.mdx files
+navigation:
+  - module: "Foundation"
+    chapters:
+      - title: "00. Introduction to Agent OS"
+        slug: "introduction"
+      - title: "01. Why Hermes?"
+        slug: "why-hermes"
+  
+  - module: "Architecture"
+    chapters:
+      - title: "02. Setting up the Main Desk"
+        slug: "main-desk"
+      - title: "03. The Solo Founder's HQ"
+        slug: "hq-setup"
+
+  - module: "Intelligence"
+    chapters:
+      - title: "04. Building the Memory Bank"
+        slug: "memory-bank"
+      - title: "05. Teaching New Skills"
+        slug: "agent-skills"
+
+  - module: "Automation"
+    chapters:
+      - title: "06. The 24/7 Engine"
+        slug: "automation-engine"
+      - title: "07. SDR & Sales Pipeline"
+        slug: "sdr-pipeline"
+
+# Deployment Config
+deployment:
+  platform: "github-pages"
+  repo: "heroyik/hermes_opc"
+  base_path: "/hermes_opc"

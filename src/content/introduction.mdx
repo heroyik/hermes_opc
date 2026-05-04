@@ -38,6 +38,34 @@ This is where you go offline. We'll set up `cron` jobs and `Skills` so your agen
 
 ---
 
+## 🧠 How an Agent Thinks
+
+To the outside world, it looks like magic. Internally, Hermes follows a rigorous **Reasoning Chain**. 
+
+<SimulationCard 
+  title="Autonomous Lead Qualification"
+  steps={[
+    { 
+      type: "thought", 
+      content: "A new message arrived from a potential client. I need to check if they match our 'High Intent' criteria (B2B, >10 employees)." 
+    },
+    { 
+      type: "action", 
+      content: "Searching LinkedIn and company database for 'Hermes Labs' profile." 
+    },
+    { 
+      type: "observation", 
+      content: "Found: 25 employees, Series A funded, B2B SaaS." 
+    },
+    { 
+      type: "thought", 
+      content: "Criteria met. This is a QUALIFIED lead. I will draft a personalized response based on their recent funding news." 
+    }
+  ]}
+/>
+
+---
+
 ## 🚀 The Solo Founder Simulation: Day 0
 Before we install a single line of code, look at this vision of your future workday:
 
@@ -51,5 +79,24 @@ Before we install a single line of code, look at this vision of your future work
 > **You**: "Thanks. Send the qualified leads to the Sales Agent and post the report to the board."
 > 
 > **[Hermes Ops]**: Understood. Tasks delegated. Enjoy your coffee.
+
+---
+
+## 💻 Experience the OS in Action
+
+Below is a live simulation of what happens when you initialize your Hermes Agent for the first time.
+
+<Terminal 
+  lines={[
+    { type: "input", content: "hermes init --founder \"Nick\" --company \"Hermes Labs\"" },
+    { type: "output", content: "Initializing Hermes Agent OS..." },
+    { type: "output", content: "Syncing with local LLM (Ollama: Gemma 4)..." },
+    { type: "success", content: "✅ Environment Ready." },
+    { type: "input", content: "hermes status" },
+    { type: "output", content: "Founder: Nick | Active Agents: 0 | Memory: Clean" },
+    { type: "input", content: "hermes chat \"Good morning. What's on my plate today?\"" },
+    { type: "output", content: "[Hermes]: Good morning, Nick. Since this is our first run, I have mapped your business context. You have 3 pending tasks from your WikiDocs integration." }
+  ]}
+/>
 
 **Ready to build this? Let's get started.**
