@@ -11,42 +11,45 @@ import {
   ArrowRight, 
   BookOpen, 
   PlayCircle,
-  LayoutDashboard
+  LayoutDashboard,
+  Rocket,
+  ShieldCheck,
+  Brain
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const bentoItems = [
   {
-    title: "The Agent OS 101",
-    description: "Transform from a solo founder to a high-scale operator with AI agents.",
+    title: "The Solo Founder's AI Team",
+    description: "Stop grinding 24/7. Build a fleet of autonomous agents that handle the boring stuff while you focus on the big picture.",
     className: "md:col-span-2 md:row-span-2",
     icon: <Cpu className="w-10 h-10 text-cyber-blue" />,
     image: "/hermes_agent_os_hero_1777882398119.png",
-    cta: "Start Reading",
+    cta: "Launch Your Team",
     href: "/book/introduction"
   },
   {
-    title: "1-Person Playbook",
-    description: "Real-world simulation of running a company single-handedly.",
+    title: "Hermes: Zero Friction",
+    description: "The world's easiest setup. No complex code, no cloud required. Just pure agent power on your machine.",
     className: "md:col-span-1 md:row-span-1",
-    icon: <LayoutDashboard className="w-6 h-6 text-accent" />,
-    cta: "Explore Playbook"
+    icon: <Rocket className="w-6 h-6 text-accent" />,
+    cta: "See How It Works"
   },
   {
-    title: "Agent Roster",
-    description: "Sales, Research, and Ops agents at your command.",
+    title: "100% Privacy",
+    description: "Your data stays yours. Run everything locally with Ollama and keep your business secrets safe.",
     className: "md:col-span-1 md:row-span-1",
-    icon: <Users className="w-6 h-6 text-primary" />
+    icon: <ShieldCheck className="w-6 h-6 text-primary" />
   },
   {
-    title: "Interactive Terminal",
-    description: "Learn by doing. Live terminal simulations for agent control.",
+    title: "Agent Memory",
+    description: "Your agents remember everything. Build a collective brain for your business that scales with you.",
     className: "md:col-span-1 md:row-span-1",
-    icon: <Terminal className="w-6 h-6 text-green-400" />
+    icon: <Brain className="w-6 h-6 text-green-400" />
   },
   {
-    title: "Elite Performance",
-    description: "Built for speed. 100/100 Lighthouse score guaranteed.",
+    title: "Hyperscale Ops",
+    description: "One person, infinite capacity. Automate lead gen, research, and support without hiring a single soul.",
     className: "md:col-span-1 md:row-span-1",
     icon: <Zap className="w-6 h-6 text-cyber-blue" />
   }
@@ -66,12 +69,20 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
+            <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-1 text-xs font-bold uppercase tracking-widest text-primary">
+              <span className="relative flex h-2 w-2">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-75"></span>
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-primary"></span>
+              </span>
+              Next-Gen Agent OS
+            </div>
             <h1 className="text-4xl font-extrabold tracking-tight md:text-6xl lg:text-7xl">
-              Hermes <span className="text-primary">Agent OS</span>
+              Build Your Own <br />
+              <span className="text-primary italic">AI Team</span> for Solo Founders
             </h1>
             <p className="mt-6 max-w-2xl text-lg text-secondary md:text-xl">
-              The definitive 101 guide for solo entrepreneurs to build, manage, and scale 
-              AI agent fleets for autonomous business operations.
+              The world's easiest way to build a high-performance AI team using <span className="text-foreground font-semibold">Hermes</span>. 
+              No fluff, no endless prompting—just autonomous execution.
             </p>
           </motion.div>
         </header>
@@ -114,7 +125,7 @@ export default function Home() {
 
                 {item.cta && (
                   <Link 
-                    href={item.href || "#"} 
+                    href={item.href || "/book/introduction"} 
                     className="mt-6 flex items-center gap-2 text-sm font-semibold text-primary transition-all hover:gap-3"
                   >
                     {item.cta} <ArrowRight className="w-4 h-4" />
@@ -129,15 +140,15 @@ export default function Home() {
         <footer className="mt-16 flex flex-wrap items-center justify-center gap-8 border-t border-white/5 pt-8 text-secondary">
           <div className="flex items-center gap-2">
             <BookOpen className="w-5 h-5" />
-            <span className="text-sm">7 Modules</span>
+            <span className="text-sm">Master the OS</span>
           </div>
           <div className="flex items-center gap-2">
             <PlayCircle className="w-5 h-5" />
-            <span className="text-sm">Simulation Ready</span>
+            <span className="text-sm">Zero Internet Required</span>
           </div>
           <div className="flex items-center gap-2">
             <Users className="w-5 h-5" />
-            <span className="text-sm">Community Support</span>
+            <span className="text-sm">Built for Solo Players</span>
           </div>
         </footer>
       </div>
